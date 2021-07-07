@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">DaftarTeman</string>
-    <string name="selected_item">SelectedItem</string>
-    <string-array name="jenisKelamin">
-        <item>Laki-Laki</item>
-        <item>Perempuan</item>
-    </string-array>
-</resources>

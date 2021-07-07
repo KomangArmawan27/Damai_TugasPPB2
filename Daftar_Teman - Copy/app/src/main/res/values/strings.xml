@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">DaftarTeman</string>
+    <string name="app_name">MxE Players</string>
+    <string name="selected_item">SelectedItem</string>
+    <string-array name="role">
+        <item>Jungler</item>
+        <item>Support</item>
+        <item>Abs Laner</item>
+        <item>Ds Laner</item>
+        <item>Mid Laner</item>
+    </string-array>
+    <string-array name="tim">
+        <item>Bounce Back</item>
+        <item>Meteora</item>
+    </string-array>
 </resources>

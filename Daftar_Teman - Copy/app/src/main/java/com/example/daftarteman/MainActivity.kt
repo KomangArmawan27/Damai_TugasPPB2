@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnCompleteListener
@@ -26,6 +27,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         show_data.setOnClickListener(this)
 
         auth = FirebaseAuth.getInstance()
+
+        setDataSpinnerRole()
+        setDataSpinnerTim()
+    }
+
+    private fun setDataSpinnerRole(){
+        val adapter = ArrayAdapter.createFromResource(this, R.array.role, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        role.adapter = adapter
+    }
+
+    private fun setDataSpinnerTim(){
+        val adapter = ArrayAdapter.createFromResource(this, R.array.tim, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        tim.adapter = adapter
     }
 
     private fun isEmpty(s: String): Boolean {
@@ -41,11 +57,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val getNama: String = nama.getText().toString()
                 val getAlamat: String = alamat.getText().toString()
                 val getNo_Hp: String = no_hp.getText().toString()
+                val getRole: String = role.selectedItem.toString()
+                val getTim: String = tim.selectedItem.toString()
 
                 val getReference: DatabaseReference
                 getReference = database.reference
 
-                if (isEmpty(getNama) || isEmpty(getAlamat) || isEmpty(getNo_Hp)) {
+                if (isEmpty(getNama) || isEmpty(getAlamat) || isEmpty(getNo_Hp) || isEmpty(getRole) || isEmpty(getTim)) {
                     Toast.makeText(
                         this@MainActivity,
                         "Data tidak boleh Ada yang kosong!",
@@ -53,7 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     ).show()
                 } else {
                     getReference.child("Admin").child(getUserId).child("DataTeman").push()
-                        .setValue(data_teman(getNama, getAlamat, getNo_Hp))
+                        .setValue(data_teman(getNama, getAlamat, getNo_Hp, getRole, getTim))
                         .addOnCompleteListener(this) {
                             nama.setText("")
                             alamat.setText("")

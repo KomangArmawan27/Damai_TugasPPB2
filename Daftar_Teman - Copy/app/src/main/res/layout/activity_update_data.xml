@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".UpdateData">
 
     <EditText
@@ -40,6 +40,32 @@
         android:inputType="textPersonName"
         android:padding="5dp"
         android:textSize="15sp" />
+
+    <!--    spinner role    -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Role"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/new_role"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--    spinner role    -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Tim"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/new_tim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/update"
